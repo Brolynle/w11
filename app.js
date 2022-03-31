@@ -74,7 +74,7 @@ function master() {
     }
 }
 
-master()
+master() // run this for the whole program
 
 
 
