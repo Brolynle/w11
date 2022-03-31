@@ -1,25 +1,22 @@
-function rungame() {
-
-user = 0
-computer = 0
 
 function askname() {
     var name = prompt("What is your name?")
     return name
 } 
 
-alert(askname())
-
 function randomnumber() {
     var numran = Math.floor(Math.random() * 10) + 1
     return numran
 }
 
-function usernum(numran) {
+function usernum() {
+
+    user = 0
 
     do {
-        
 
+        var numran = randomnumber()
+        
         user = user + numran
         
         var drawnum = prompt(`You drew... ${numran} and your total is... ${user}.\n\nDo you want to draw another number? If so enter 'y'`)
@@ -29,16 +26,21 @@ function usernum(numran) {
     return user
 }
 
+function comnum() {
 
-function comnum(b) {
+    computer = 0
 
     do {
+
+        var numran = randomnumber()
     
         computer = computer + numran
         
-        var comran= prompt(`I drew the number... ${numran} my total is... ${computerl}`)
+        var comran= prompt(`I drew the number... ${numran} my total is... ${computer}`)
 
     } while (computer < 16)
+
+    return computer
 }
 
 function comparnum(user, computer) {
@@ -47,23 +49,32 @@ function comparnum(user, computer) {
         alert("You  win!")
     }
 
-    if (user > 20) {
+    else if (user > 20) {
         alert("You lose!")
     }
 
-    if ((user > computer) && (computer <= 20) && (user <= 20)) {
+    else if ((user > computer) && (computer <= 20) && (user <= 20)) {
         alert("Good job, you won!")
     }
 
-    if ((user)) {}
-
-
-}
-
-askname()
-randomnumber()
-usernum()
-comnum()
-comparnum()
+    // if ((user)) {}
 
 }
+
+// var playagain = prompt("Do you want to play again? Enter `y` or `n`")
+
+
+function master() {
+    var u = usernum()
+    var c = comnum()
+    comparnum(u, c)
+    var playagain = prompt("Do you want to play again? Enter `y` or `n`")
+    if (playagain == "y") {
+        master() // recursive function
+    }
+}
+
+master()
+
+
+
